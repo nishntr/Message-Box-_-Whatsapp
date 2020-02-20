@@ -22,25 +22,25 @@ class _AddState extends State<Add> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              child: TextField(
-                controller: nController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(labelText: 'Mobile'),
-              ),
-            ),
-            // Row(
-            //   children: <Widget>[
-            //     TextFormField(
-            //       controller: nController,
-            //       decoration: InputDecoration(labelText: 'Search Contact'),
-            //     ),
-            //     InkWell(
-            //       child:
-            //           IconButton(icon: Icon(Icons.contacts), onPressed: null),
-            //     )
-            //   ],
+            // Container(
+            //   child: TextField(
+            //     controller: nController,
+            //     keyboardType: TextInputType.number,
+            //     decoration: InputDecoration(labelText: 'Mobile'),
+            //   ),
             // ),
+            Row(
+              children: <Widget>[
+                TextFormField(
+                  controller: nController,
+                  decoration: InputDecoration(labelText: 'Search Contact'),
+                ),
+                InkWell(
+                  child:
+                      IconButton(icon: Icon(Icons.contacts), onPressed: null),
+                )
+              ],
+            ),
             Container(
               child: TextField(
                 controller: tController,
