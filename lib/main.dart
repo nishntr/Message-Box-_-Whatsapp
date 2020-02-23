@@ -4,10 +4,12 @@ import 'screens/home.dart';
 
 void main() {
   return runApp(MaterialApp(
-    home: MsApp(),
-    debugShowCheckedModeBanner: false,
-    darkTheme: ThemeData.dark(),
-  ));
+      home: MsApp(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.pinkAccent,
+        textSelectionColor: Colors.deepPurple,
+      )));
 }
 
 // class MyApp extends StatefulWidget {

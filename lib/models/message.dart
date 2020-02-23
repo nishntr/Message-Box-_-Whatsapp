@@ -7,11 +7,13 @@ class Msg {
   int _id;
   int _number;
   String _msg;
+  String _name;
 
-  Msg(this._number, this._msg);
+  Msg(this._name, this._number, this._msg);
   int get id => _id;
   int get number => _number;
   String get msg => _msg;
+  String get name => _name;
 
   set setId(int id) {
     _id = id;
@@ -22,6 +24,7 @@ class Msg {
       'id': _id,
       'number': _number,
       'msg': _msg,
+      'name': _name
     };
     return map;
   }
@@ -30,6 +33,7 @@ class Msg {
     this._id = map['id'];
     this._number = map['number'];
     this._msg = map['msg'];
+    this._name = map['name'];
   }
 }
 
@@ -38,6 +42,7 @@ class MsgProvider {
   final String columnId = 'id';
   final String number = 'number';
   final String msg = 'msg';
+  final String name = 'name';
 
   static Database _db;
 
@@ -63,7 +68,7 @@ class MsgProvider {
 
   void _onCreate(Database db, int version) async {
     await db.execute(
-        "CREATE TABLE $table($columnId integer primary key, $number integer, $msg text)");
+        "CREATE TABLE $table($columnId integer primary key,$name text, $number integer, $msg text)");
     print('database createdd....*******000');
   }
   // Future open() async {

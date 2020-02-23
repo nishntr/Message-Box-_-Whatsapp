@@ -4,6 +4,7 @@ import 'package:whatsapp/screens/add.dart';
 // import 'package:flutter/services.dart';
 // import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
 import '../models/message.dart';
+import 'dart:async';
 // import 'package:contacts_service/contacts_service.dart';
 
 class MsApp extends StatefulWidget {
@@ -32,30 +33,54 @@ class _MsAppState extends State<MsApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.pinkAccent,
         title: Text('Message Scheduler'),
       ),
       drawer: Drawer(
         elevation: 15.0,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text("Home"),
-            )
+            // ListTile(
+            //   leading: Icon(Icons.home),
+            //   title: Text("Home"),
+            // ),
+            // Padding(padding: EdgeInsets.all(20)),
+            Container(
+                child: Image(
+              image: AssetImage(
+                "lib/assets/minion.png",
+              ),
+              height: 280,
+              width: 280,
+            ))
           ],
         ),
       ),
       body: new ListView.builder(
+        physics: ScrollPhysics(parent: BouncingScrollPhysics()),
         itemBuilder: (context, index) {
           return Card(
-            elevation: 2,
-            color: Colors.pink,
+            elevation: 4,
+            clipBehavior: Clip.antiAlias,
+            color: Colors.blueAccent,
             child: ListTile(
-              title: Text(list[index].msg),
-              subtitle: Text('${list[index].id}'),
+              title: Text(
+                '${list[index].name}',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                list[index].msg,
+                maxLines: 2,
+                style: TextStyle(color: Colors.white),
+              ),
               trailing: InkWell(
-                child: Icon(Icons.delete),
+                child: Icon(
+                  Icons.delete,
+                  color: Colors.white,
+                ),
                 onTap: () {
                   _delete(index);
                 },
@@ -76,10 +101,15 @@ class _MsAppState extends State<MsApp> {
         itemCount: list.length,
       ),
       floatingActionButton: FloatingActionButton(
+        elevation: 5,
+        splashColor: Colors.greenAccent,
+        hoverElevation: 18,
+        focusElevation: 18,
+        highlightElevation: 18,
         onPressed: () {
-          setState(() async {
+          setState(() {
             print('button');
-            await Navigator.push(
+            Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Add()));
           });
         },
