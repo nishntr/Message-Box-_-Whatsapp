@@ -42,11 +42,6 @@ class _MsAppState extends State<MsApp> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // ListTile(
-            //   leading: Icon(Icons.home),
-            //   title: Text("Home"),
-            // ),
-            // Padding(padding: EdgeInsets.all(20)),
             Container(
                 child: Image(
               image: AssetImage(
