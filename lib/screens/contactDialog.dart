@@ -25,7 +25,10 @@ Future<Contact> contactDiag(BuildContext context, List<Contact> contact) {
                       print(
                           '${contact[index].phones.first.value.replaceAll("+91", "")}');
                     },
-                    child: Text('${contact[index].givenName}'),
+                    child: Text(
+                      '${contact[index].givenName}',
+                      style: TextStyle(color: Colors.white),
+                    ),
                     color: Colors.blueAccent,
                     splashColor: Colors.lightBlue,
                   );
