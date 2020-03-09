@@ -34,7 +34,7 @@ class _MsAppState extends State<MsApp> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
-        title: Text('Message Scheduler'),
+        title: Text('Whatsapp Box'),
       ),
       drawer: Drawer(
         elevation: 15.0,
